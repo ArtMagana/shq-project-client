@@ -4,17 +4,30 @@ import axios from 'axios';
 class AddProduct extends Component {
   constructor(props){
       super(props);
-      this.state = { name: "", specification: "" };
-  }
+      this.state = {
+        name: '',
+        specification: '',
+        measure: ''
+      };
+    }
 
   handleFormSubmit = (event) => {
     event.preventDefault();
     const name = this.state.name;
     const specification = this.state.specification;
-    axios.post("http://localhost:5000/api/products", { name, specification }, {withCredentials:true})
+    const measure = this.state.measure;
+    axios.post("http://localhost:5000/api/products", {
+      name,
+      specification,
+      measure
+    }, {withCredentials:true})
     .then( () => {
         this.props.getData();
-        this.setState({name: "", specification: ""});
+        this.setState({
+          name: '',
+          specification: '',
+          measure: ''
+        });
     })
     .catch( error => console.log(error) )
   }
@@ -29,9 +42,11 @@ class AddProduct extends Component {
       <div>
         <form onSubmit={this.handleFormSubmit}>
           <label>Name:</label>
-          <input type="text" name="name" value={this.state.name} onChange={ e => this.handleChange(e)}/>
+          <input type='text' name='name' value={this.state.name} onChange={ e => this.handleChange(e)}/>
           <label>Specification:</label>
-          <textarea name="specification" value={this.state.specification} onChange={ e => this.handleChange(e)} />
+          <input type='text' name='specification' value={this.state.specification} onChange={ e => this.handleChange(e)} />
+          <label>Measure:</label>
+          <input type='text' name='measure' value={this.state.measure} onChange={ e => this.handleChange(e)} />
 
           <input type="submit" value="Submit" />
         </form>

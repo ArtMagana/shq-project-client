@@ -31,9 +31,10 @@ class ProductList extends Component {
             return (
               <div key={product._id}>
                 <Link to={`/products/${product._id}`}>
-                  <h3>{product.name}</h3>
+                  <h2>{product.name}</h2>
                 </Link>
-                <p style={{maxWidth: '400px'}} >{product.specification} </p>
+                <h3 style={{maxWidth: '300px'}}>{product.specification}</h3>
+                <p style={{maxWidth: '200px'}}>{product.measure}</p>
               </div>
             )})
           }

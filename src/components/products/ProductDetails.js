@@ -42,7 +42,7 @@ class ProductDetails extends Component {
     const { params } = this.props.match;
     axios.delete(`http://localhost:5000/api/products/${params.id}`, {withCredentials:true})
     .then( responseFromApi =>{
-        this.props.history.push('/products');      
+        this.props.history.push('/products');
     })
     .catch((err)=>{
         console.log(err)
@@ -54,18 +54,19 @@ class ProductDetails extends Component {
     return (
       <div>
         <div>{this.renderEditForm()} </div>
-        <button onClick={() => this.deleteProduct(this.state._id)}>Delete product</button>
+        <button onClick={() => this.deleteProduct(this.state._id)}>Delete Product</button>
       </div>
     )
-  } 
+  }
 }
 
 render(){
   return(
     <div>
       <h1>{this.state.name}</h1>
-      <p>{this.state.specification}</p>
-      <div >
+      <h2>{this.state.specification}</h2>
+      <p>{this.state.measure}</p>
+      <div>
         {this.ownershipCheck(this.state)}
       </div>
       <Link to={'/products'}>Back to products</Link>
