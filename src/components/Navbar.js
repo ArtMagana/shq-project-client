@@ -18,32 +18,48 @@ class Navbar extends Component {
     this.service.logout()
     .then(() => {
       this.setState({ loggedInUser: null });
-      this.props.getUser(null);  
+      this.props.getUser(null);
     })
   }
 
   render(){
     if(this.state.loggedInUser){
       return(
-        <nav className="nav-style">
-          <ul>
-            <li>Welcome, {this.state.loggedInUser.username}</li>
-            <li><Link to='/products' style={{ textDecoration: 'none' }}>Products</Link></li>
-            <li>
-              <Link to='/'>
-                <button onClick={() => this.logoutUser()}>Logout</button>
-              </Link>
-            </li>
-          </ul>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <a className="navbar-brand" href="/">Welcome: {this.state.loggedInUser.username}</a>
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+          </button>
+
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav mr-auto">
+              <li className="nav-item active">
+                <a className="nav-link" href="/"><Link to='/products' style={{ textDecoration: 'none' }}>Products</Link><span class="sr-only">(current)</span></a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="/"><Link to='/'><button onClick={() => this.logoutUser()}>Logout</button></Link></a>
+              </li>
+            </ul>
+          </div>
         </nav>
       )
     } else {
-      return ( 
-        <nav className="nav-style">
-          <ul>
-            <li><Link to='/' style={{ textDecoration: 'none' }}>Login</Link></li>
-            <li><Link to='/signup' style={{ textDecoration: 'none' }}>Signup</Link></li>
-          </ul>
+      return (
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <a className="navbar-brand" href="/">shq</a>
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav">
+              <li className="nav-item active">
+                <Link to='/'>Login</Link>
+              </li>
+              <li className="nav-item active">
+                <Link to='/signup'> Signup</Link>
+              </li>
+            </ul>
+          </div>
         </nav>
       )
     }

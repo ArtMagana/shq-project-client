@@ -8,7 +8,8 @@ class EditProduct extends Component {
     this.state = {
         name: this.props.theProduct.name,
         specification: this.props.theProduct.specification,
-        measure: this.props.theProduct.measure
+        measure: this.props.theProduct.measure,
+        packing: this.props.theProduct.packing
     }
   }
 
@@ -17,13 +18,15 @@ class EditProduct extends Component {
     const name = this.state.name;
     const specification = this.state.specification;
     const measure = this.state.measure;
+    const packing = this.state.packing;
 
     event.preventDefault();
 
     axios.put(`http://localhost:5000/api/products/${this.props.theProduct._id}`, {
       name,
       specification,
-      measure
+      measure,
+      packing
     }, {withCredentials:true})
     .then( () => {
         this.props.getTheProduct();
@@ -49,7 +52,11 @@ class EditProduct extends Component {
       measure:event.target.value
     })
   }
-
+  handleChangePacking = (event) => {
+    this.setState({
+      packing:event.target.value
+    })
+  }
   render(){
     return (
       <div>
@@ -62,6 +69,8 @@ class EditProduct extends Component {
           <input type='text' name='specification' value={this.state.specification} onChange={e => this.handleChangeDesc(e)} />
           <label>Measurement:</label>
           <input type='text' name='measure' value={this.state.measure} onChange={e => this.handleChangeMeasure(e)} />
+          <label>Packing:</label>
+          <input type='text' name='packing' value={this.state.packing} onChange={e => this.handleChangePacking(e)} />
 
           <input type="submit" value="Submit" />
         </form>

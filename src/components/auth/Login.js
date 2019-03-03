@@ -22,24 +22,34 @@ class Login extends Component {
     })
     .catch( error => console.log(error) )
   }
-    
-  handleChange = (event) => {  
+
+  handleChange = (event) => {
     const {name, value} = event.target;
     this.setState({[name]: value});
   }
-    
+
   render(){
     return(
       <div>
         <form onSubmit={this.handleFormSubmit}>
-          <label>Username:</label>
-          <input type="text" name="username" value={this.state.username} onChange={ e => this.handleChange(e)}/>
-          <label>Password:</label>
-          <textarea name="password" value={this.state.password} onChange={ e => this.handleChange(e)} />
-          
-          <input type="submit" value="Login" />
+          <div className='form-row align-items-center'>
+            <div className='col-auto'>
+            <label for="inlineFormInput">Username:</label>
+            <input type="text" name="username" placeholder="Enter your username" className="form-control mb-2" id="inlineFormInput" value={this.state.username} onChange={ e => this.handleChange(e)}/>
+            </div>
+
+            <div className='col-auto'>
+            <label for="inlineFormInput">Password:</label>
+            <input type="text" name="password" placeholder="Enter your password" className="form-control mb-2" id="inlineFormInput" value={this.state.password} onChange={ e => this.handleChange(e)}/>
+            </div>
+
+            <div className='col-auto'>
+            <button type='submit' className='btn btn-primary mb-2'>Enter</button>
+            </div>
+
+          </div>
         </form>
-        <p>Don't have account? 
+        <p>Don't have an account yet?
             <Link to={"/signup"}> Signup</Link>
         </p>
       </div>

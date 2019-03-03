@@ -26,22 +26,30 @@ class ProductList extends Component {
   render(){
     return(
       <div>
-        <div style={{width: '60%', float:"left"}}>
+      <div>
+          <AddProduct getData={() => this.getAllProducts()}/>
+      </div>
+        <div>
           { this.state.listOfProducts.map((product, index) => {
             return (
               <div key={product._id}>
-                <Link to={`/products/${product._id}`}>
-                  <h2>{product.name}</h2>
-                </Link>
-                <h3 style={{maxWidth: '300px'}}>{product.specification}</h3>
-                <p style={{maxWidth: '200px'}}>{product.measure}</p>
+                <table className='table table-bordered table-hover dt-responsive'>
+                  <tr>
+                    <th>Product Name</th>
+                    <th>Product Specification</th>
+                    <th>Measure</th>
+                    <th>Package</th>
+                  </tr>
+                    <td><Link to={`/products/${product._id}`}>{product.name}</Link></td>
+                    <td>{product.specification}</td>
+                    <td>{product.measure}</td>
+                    <td>{product.packing}</td>
+                </table>
               </div>
             )})
           }
         </div>
-        <div style={{width: '40%', float:"right"}}>
-            <AddProduct getData={() => this.getAllProducts()}/>
-        </div>
+
       </div>
     )
   }
