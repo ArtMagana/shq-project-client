@@ -7,7 +7,8 @@ class AddProduct extends Component {
       this.state = {
         name: '',
         specification: '',
-        measure: ''
+        measure: '',
+        packing: ''
       };
     }
 
@@ -16,17 +17,20 @@ class AddProduct extends Component {
     const name = this.state.name;
     const specification = this.state.specification;
     const measure = this.state.measure;
+    const packing = this.state.packing;
     axios.post("http://localhost:5000/api/products", {
       name,
       specification,
-      measure
+      measure,
+      packing
     }, {withCredentials:true})
     .then( () => {
         this.props.getData();
         this.setState({
           name: '',
           specification: '',
-          measure: ''
+          measure: '',
+          packing: ''
         });
     })
     .catch( error => console.log(error) )
@@ -40,15 +44,21 @@ class AddProduct extends Component {
   render(){
     return(
       <div>
-        <form onSubmit={this.handleFormSubmit}>
-          <label>Name:</label>
-          <input type='text' name='name' value={this.state.name} onChange={ e => this.handleChange(e)}/>
-          <label>Specification:</label>
-          <input type='text' name='specification' value={this.state.specification} onChange={ e => this.handleChange(e)} />
-          <label>Measure:</label>
-          <input type='text' name='measure' value={this.state.measure} onChange={ e => this.handleChange(e)} />
+        <form className='form-group' onSubmit={this.handleFormSubmit}>
+          <div className='form-row'>
+            <div className='col'>
+              <label for="formGroupExampleInput">Name:</label>
+              <input type='text' className='form-control-sm' name='name' placeholder='Enter product name' value={this.state.name} onChange={ e => this.handleChange(e)}/>
+              <label for="formGroupExampleInput">Specification:</label>
+              <input type='text' className='form-control-lg' name='specification' value={this.state.specification} onChange={ e => this.handleChange(e)} />
+              <label for="formGroupExampleInput">Measure:</label>
+              <input type='text' className='form-control-sm' name='measure' value={this.state.measure} onChange={ e => this.handleChange(e)} />
+              <label for="formGroupExampleInput">Packing:</label>
+              <input type='text' className='form-control-sm' name='packing' value={this.state.packing} onChange={ e => this.handleChange(e)} />
 
-          <input type="submit" value="Submit" />
+              <input type="submit" className='btn btn-primary' value="Add" />
+            </div>
+          </div>
         </form>
       </div>
     )
