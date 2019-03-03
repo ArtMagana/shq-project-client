@@ -25,32 +25,39 @@ class ProductList extends Component {
 
   render(){
     return(
+    <div>
       <div>
-      <div>
-          <AddProduct getData={() => this.getAllProducts()}/>
+        <AddProduct getData={() => this.getAllProducts()}/>
       </div>
-        <div>
-          { this.state.listOfProducts.map((product, index) => {
-            return (
-              <div key={product._id}>
-                <table className='table table-bordered table-hover dt-responsive'>
-                  <tr>
-                    <th>Product Name</th>
-                    <th>Product Specification</th>
-                    <th>Measure</th>
-                    <th>Package</th>
-                  </tr>
-                    <td><Link to={`/products/${product._id}`}>{product.name}</Link></td>
-                    <td>{product.specification}</td>
-                    <td>{product.measure}</td>
-                    <td>{product.packing}</td>
-                </table>
-              </div>
-            )})
+      <div className='table-responsive'>
+        <table className='table table-hover'>
+          <thead>
+            <tr>
+              <th scope='col'>Product Name</th>
+              <th scope='col'>Product Specification</th>
+              <th scope='col'>Measure</th>
+              <th scope='col'>Package</th>
+            </tr>
+          </thead>
+          <tbody>
+        {this.state.listOfProducts.map((product, index) => {
+          return (
+          <div>
+            <tr>
+            <th scope='row' key={product._id}><Link to={`/products/${product._id}`}>{product.name}</Link></th>
+            <td>{product.specification}</td>
+            <td>{product.measure}</td>
+            <td>{product.packing}</td>
+            </tr>
+          </div>
+          )})
           }
-        </div>
-
+          </tbody>
+        </table>
       </div>
+      
+
+    </div>
     )
   }
 }
