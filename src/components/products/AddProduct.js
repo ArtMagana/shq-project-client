@@ -6,7 +6,7 @@ class AddProduct extends Component {
       super(props);
       this.state = { name: "", specification: "" };
   }
-  
+
   handleFormSubmit = (event) => {
     event.preventDefault();
     const name = this.state.name;
@@ -19,7 +19,7 @@ class AddProduct extends Component {
     .catch( error => console.log(error) )
   }
 
-  handleChange = (event) => {  
+  handleChange = (event) => {
       const {name, value} = event.target;
       this.setState({[name]: value});
   }
@@ -32,7 +32,7 @@ class AddProduct extends Component {
           <input type="text" name="name" value={this.state.name} onChange={ e => this.handleChange(e)}/>
           <label>Specification:</label>
           <textarea name="specification" value={this.state.specification} onChange={ e => this.handleChange(e)} />
-          
+
           <input type="submit" value="Submit" />
         </form>
       </div>
