@@ -66,7 +66,7 @@ render(){
       <h1>{this.state.name}</h1>
       <h2>{this.state.specification}</h2>
       <p>{this.state.measure}</p>
-      <p>{this.state.package}</p>
+      <p>{this.state.packing}</p>
       <div>
         {this.ownershipCheck(this.state)}
       </div>
