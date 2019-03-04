@@ -25,6 +25,7 @@ class Navbar extends Component {
   render(){
     if(this.state.loggedInUser){
       return(
+        <div>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <a className="navbar-brand" href="/">Welcome: {this.state.loggedInUser.username}</a>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,6 +43,9 @@ class Navbar extends Component {
             </ul>
           </div>
         </nav>
+
+        </div>
+
       )
     } else {
       return (
