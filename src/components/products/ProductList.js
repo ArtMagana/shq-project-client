@@ -33,20 +33,36 @@ class ProductList extends Component {
         <table className='table table-hover'>
           <thead>
             <tr>
+              <th scope='col'>Code</th>
               <th scope='col'>Product Name</th>
               <th scope='col'>Product Specification</th>
               <th scope='col'>Measure</th>
+              <th scope='col'>Presentation</th>
               <th scope='col'>Package</th>
+              <th scope='col'>Dimensions</th>
+              <th scope='col'>Currency</th>
+              <th scope='col'>IGI</th>
+              <th scope='col'>IVA</th>
+              <th scope='col'>Quantity</th>
+              <th scope='col'>Cost</th>
             </tr>
           </thead>
           <tbody>
         {this.state.listOfProducts.map((product, index) => {
           return (
             <tr>
+            <td>{product.code}</td>
             <th scope='row' key={product._id}><Link to={`/products/${product._id}`}>{product.name}</Link></th>
             <td>{product.specification}</td>
             <td>{product.measure}</td>
+            <td>{product.presentation}</td>
             <td>{product.packing}</td>
+            <td>{product.dimensions}</td>
+            <td>{product.currency}</td>
+            <td>{product.igi}</td>
+            <td>{product.iva}</td>
+            <td>{product.quantity}</td>
+            <td>{product.cost}</td>
             </tr>
           )})
           }
