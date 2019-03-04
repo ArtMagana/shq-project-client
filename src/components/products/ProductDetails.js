@@ -63,10 +63,18 @@ class ProductDetails extends Component {
 render(){
   return(
     <div>
+      <h1>{this.state.code}</h1>
       <h1>{this.state.name}</h1>
       <h2>{this.state.specification}</h2>
       <p>{this.state.measure}</p>
+      <p>{this.state.presentation}</p>
       <p>{this.state.packing}</p>
+      <p>{this.state.dimensions}</p>
+      <p>{this.state.currency}</p>
+      <p>{this.state.cost}</p>
+      <p>{this.state.iva}</p>
+      <p>{this.state.igi}</p>
+      <p>{this.state.quantity}</p>
       <div>
         {this.ownershipCheck(this.state)}
       </div>
