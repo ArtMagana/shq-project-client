@@ -100,9 +100,8 @@ class EditProduct extends Component {
   render(){
     return (
       <div>
-        <hr />
+        <div className='container-fluid'>
         <h3>Edit product information</h3>
-        <div className='container'>
           <form onSubmit={this.handleFormSubmit}>
             <div className='form-group row'>
               <label className='col-sm-2 col-form-label'>Name:</label>
@@ -159,7 +158,9 @@ class EditProduct extends Component {
               </div>   
             </div>
 
-            <input type="submit" className='btn btn-primary' value="Edit" />
+            <div className='form-group row'>
+            <input type="submit" className='col btn btn-primary' value="Edit" />
+            </div>
           </form>
         </div>
       </div>

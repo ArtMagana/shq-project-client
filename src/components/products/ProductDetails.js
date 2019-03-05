@@ -54,7 +54,7 @@ class ProductDetails extends Component {
     return (
       <div>
         <div>{this.renderEditForm()} </div>
-        <button onClick={() => this.deleteProduct(this.state._id)}>Delete Product</button>
+        <button className='btn btn-primary' onClick={() => this.deleteProduct(this.state._id)}>Delete Product</button>
       </div>
     )
   }
@@ -62,23 +62,30 @@ class ProductDetails extends Component {
 
 render(){
   return(
-    <div>
-      <h1>{this.state.code}</h1>
-      <h1>{this.state.name}</h1>
-      <h2>{this.state.specification}</h2>
-      <p>{this.state.measure}</p>
-      <p>{this.state.presentation}</p>
-      <p>{this.state.packing}</p>
-      <p>{this.state.dimensions}</p>
-      <p>{this.state.currency}</p>
-      <p>{this.state.cost}</p>
-      <p>{this.state.iva}</p>
-      <p>{this.state.igi}</p>
-      <p>{this.state.quantity}</p>
-      <div>
-        {this.ownershipCheck(this.state)}
-      </div>
+    <div className='container-fluid'>
       <Link to={'/products'}>Back to products</Link>
+      <hr/>
+      <div className='row'>
+        <div className='col-6'>
+          {this.ownershipCheck(this.state)}
+        </div>
+        <div className='col-6'>
+          <ul className='list-group'>
+            <li className='list-group-item list-group-item-action'>{this.state.code}</li>
+            <li className='list-group-item list-group-item-action'>{this.state.name}</li>
+            <li className='list-group-item list-group-item-action'>{this.state.specification}</li>
+            <li className='list-group-item list-group-item-action'>{this.state.measure}</li>
+            <li className='list-group-item list-group-item-action'>{this.state.presentation}</li>
+            <li className='list-group-item list-group-item-action'>{this.state.packing}</li>
+            <li className='list-group-item list-group-item-action'>{this.state.dimensions}</li>
+            <li className='list-group-item list-group-item-action'>{this.state.currency}</li>
+            <li className='list-group-item list-group-item-action'>{this.state.iva}</li>
+            <li className='list-group-item list-group-item-action'>{this.state.igi}</li>
+            <li className='list-group-item list-group-item-action'>{this.state.cost}</li>
+            <li className='list-group-item list-group-item-action'>{this.state.quantity}</li>
+          </ul>
+        </div>
+      </div>
     </div>
   )
 }

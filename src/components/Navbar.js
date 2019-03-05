@@ -25,46 +25,28 @@ class Navbar extends Component {
   render(){
     if(this.state.loggedInUser){
       return(
-        <div>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <a className="navbar-brand" href="/">Welcome: {this.state.loggedInUser.username}</a>
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-          </button>
-
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mr-auto">
-              <li className="nav-item active">
-                <a className="nav-link" href="/"><Link to='/products' style={{ textDecoration: 'none' }}>Products</Link><span class="sr-only">(current)</span></a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/"><Link to='/'><button onClick={() => this.logoutUser()}>Logout</button></Link></a>
-              </li>
+      <div className='container-fluid'>
+        <div className='row'>
+          <div className='col'>
+            <ul className="nav">
+              <li className="nav-item nav-link"><a className="list-group-item list-group-item-action" href="/">Welcome: {this.state.loggedInUser.username}</a></li>
+              <li className="nav-item nav-link"><a className="list-group-item list-group-item-action" href="/"><Link to='/products'>Products</Link></a></li>
+              <li className='nav-item nav-link'><Link to='/'><button className='btn btn-primary' onClick={() => this.logoutUser()}>Logout</button></Link></li>
             </ul>
           </div>
-        </nav>
-
-        </div>
-
+        </div> 
+      </div>
       )
     } else {
       return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <a className="navbar-brand" href="/">shq</a>
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav">
-              <li className="nav-item active">
-                <Link to='/'>Login</Link>
-              </li>
-              <li className="nav-item active">
-                <Link to='/signup'> Signup</Link>
-              </li>
+
+      <div className='container-fluid'>
+            <ul className="nav justify-content-center">
+              <li className="nav-item nav-link"><a className="list-group-item list-group-item-action" href="/">shq</a></li>
+              <li className="nav-item nav-link"><a className="list-group-item list-group-item-action" href="/"><Link to='/'>Login</Link></a></li>
+              <li className="nav-item nav-link"><a className="list-group-item list-group-item-action" href="/signup"><Link to='/signup'>Signup</Link></a></li>
             </ul>
-          </div>
-        </nav>
+      </div>
       )
     }
   }

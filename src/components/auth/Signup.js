@@ -39,28 +39,24 @@ handleChange = (event) => {
 
 render(){
   return(
-      <div>
-        <form onSubmit={this.handleFormSubmit}>
-          <div className='form-row align-items-center'>
-            <div className='col-auto'>
-            <label for="inlineFormInput">Username:</label>
-            <input type="text" name="username" placeholder="Enter your username" className="form-control mb-2" id="inlineFormInput" value={this.state.username} onChange={ e => this.handleChange(e)}/>
-            </div>
+      <div className='container-fluid'>
+        <div className='row'>
+          <form className='col' onSubmit={this.handleFormSubmit}>
+              <label>Username:</label>
+              <input type="text" name="username" placeholder="Enter your username" className="form-control mb-2" value={this.state.username} onChange={ e => this.handleChange(e)}/>
 
-            <div className='col-auto'>
-            <label for="inlineFormInput">Password:</label>
-            <input type="text" name="password" placeholder="Enter your password" className="form-control mb-2" id="inlineFormInput" value={this.state.password} onChange={ e => this.handleChange(e)}/>
-            </div>
+              <label>Password:</label>
+              <input type="text" name="password" placeholder="Enter your password" className="form-control mb-2" value={this.state.password} onChange={ e => this.handleChange(e)}/>
 
-            <div className='col-auto'>
-            <button type='submit' className='btn btn-primary mb-2'>Signup</button>
-            </div>
+              <button type='submit' className='btn btn-primary mb-2'>Signup</button>
+          </form>
+        </div>
+
+        <div className='row'>
+          <div className='col'>
+          <p>Already have an account?<Link to={"/"}> Login</Link></p>
           </div>
-        </form>
-
-        <p>Already have an account?
-          <Link to={"/"}> Login</Link>
-        </p>
+        </div>
      </div>
     )
   }
