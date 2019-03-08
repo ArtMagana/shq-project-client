@@ -31,6 +31,7 @@ class Navbar extends Component {
             <ul className="nav">
               <li className="nav-item nav-link"><Link className="list-group-item list-group-item-action" to='/'>Welcome: {this.state.loggedInUser.username}</Link></li>
               <li className="nav-item nav-link"><Link className="list-group-item list-group-item-action" to='/products'>Products</Link></li>
+              <li className="nav-item nav-link"><Link className="list-group-item list-group-item-action" to='/purchases'>Purchases</Link></li>
               <li className='nav-item nav-link'><Link to='/'><button className='btn btn-primary' onClick={() => this.logoutUser()}>Logout</button></Link></li>
             </ul>
           </div>

@@ -11,7 +11,7 @@ import Signup from './components/auth/Signup';
 import AuthService from './components/auth/auth-service';
 import Login from './components/auth/Login';
 import ProtectedRoute from './components/auth/protected-route';
-// import cover from '../src/img/shutterstock_1094326709.jpg'
+import BuyProduct from './components/products/BuyProduct'
 
 class App extends Component {
 
@@ -52,6 +52,7 @@ render() {
           <Switch>
             <ProtectedRoute user={this.state.loggedInUser} path='/products/:id' component={ProductDetails}/>
             <ProtectedRoute user={this.state.loggedInUser} path='/products' component={ProductList} />
+            <ProtectedRoute user={this.state.loggedInUser} path='/purchases' component={BuyProduct} />
           </Switch>
         {/* <img src={cover} className='img-fluid img-thumbnail rounded mx-auto d-block' alt='Cover'/> */}
 
@@ -66,6 +67,7 @@ render() {
               <Route exact path='/' render={() => <Login getUser={this.getTheUser}/>}/>
               <ProtectedRoute user={this.state.loggedInUser} path='/products/:id' component={ProductDetails} />
               <ProtectedRoute user={this.state.loggedInUser} path='/products' component={ProductList} />
+              <ProtectedRoute user={this.state.loggedInUser} path='/purchases' component={BuyProduct} />
             </Switch>
         {/* <img src={cover} className='img-fluid img-thumbnail rounded mx-auto d-block' alt='Cover'/> */}
         </div>

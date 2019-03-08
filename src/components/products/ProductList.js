@@ -50,9 +50,9 @@ class ProductList extends Component {
           <tbody>
         {this.state.listOfProducts.map((product, index) => {
           return (
-            <tr>
+            <tr key={product._id}>
             <td>{product.code}</td>
-            <th scope='row' key={product._id}><Link to={`/products/${product._id}`}>{product.name}</Link></th>
+            <th scope='row'><Link to={`/products/${product._id}`}>{product.name}</Link></th>
             <td>{product.specification}</td>
             <td>{product.measure}</td>
             <td>{product.presentation}</td>

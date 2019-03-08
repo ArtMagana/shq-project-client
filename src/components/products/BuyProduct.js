@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 
 class BuyProduct extends Component {
   constructor(props) {
@@ -21,7 +21,7 @@ class BuyProduct extends Component {
   }
   render(){
     return(
-      <div></div>
+      <div className='container-fuid'></div>
     )
   }
 }
