@@ -89,13 +89,13 @@ class AddProduct extends Component {
             </div>
             
             <fieldset disabled>
-              <div class="form-group">
-                <input type="number" id="disabledTextInput" name='quantity' class="form-control" placeholder="Quantity" value={this.state.quantity} onChange={ e => this.handleChange(e)}/>
+              <div className="form-group">
+                <input type="number" name='quantity' className="form-control" placeholder="Quantity" value={this.state.quantity} onChange={ e => this.handleChange(e)}/>
               </div>
             </fieldset>
             <fieldset disabled>
-              <div class="form-group">
-                <input type="number" id="disabledTextInput" name='cost' class="form-control" placeholder="$ Unitary Cost" value={this.state.cost} onChange={ e => this.handleChange(e)}/>
+              <div className="form-group">
+                <input type="number" name='cost' className="form-control" placeholder="$ Unitary Cost" value={this.state.cost} onChange={ e => this.handleChange(e)}/>
               </div>
             </fieldset>
         </div>

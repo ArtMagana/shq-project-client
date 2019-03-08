@@ -1,7 +1,7 @@
 // navbar/Navbar.js
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import AuthService from './auth/auth-service';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import AuthService from './auth/auth-service'
 
 class Navbar extends Component {
   constructor(props) {
@@ -29,8 +29,8 @@ class Navbar extends Component {
         <div className='row'>
           <div className='col'>
             <ul className="nav">
-              <li className="nav-item nav-link"><a className="list-group-item list-group-item-action" href="/">Welcome: {this.state.loggedInUser.username}</a></li>
-              <li className="nav-item nav-link"><a className="list-group-item list-group-item-action" href="/"><Link to='/products'>Products</Link></a></li>
+              <li className="nav-item nav-link"><Link className="list-group-item list-group-item-action" to='/'>Welcome: {this.state.loggedInUser.username}</Link></li>
+              <li className="nav-item nav-link"><Link className="list-group-item list-group-item-action" to='/products'>Products</Link></li>
               <li className='nav-item nav-link'><Link to='/'><button className='btn btn-primary' onClick={() => this.logoutUser()}>Logout</button></Link></li>
             </ul>
           </div>
@@ -42,9 +42,9 @@ class Navbar extends Component {
 
       <div className='container-fluid'>
             <ul className="nav justify-content-center">
-              <li className="nav-item nav-link"><a className="list-group-item list-group-item-action" href="/">shq</a></li>
-              <li className="nav-item nav-link"><a className="list-group-item list-group-item-action" href="/"><Link to='/'>Login</Link></a></li>
-              <li className="nav-item nav-link"><a className="list-group-item list-group-item-action" href="/signup"><Link to='/signup'>Signup</Link></a></li>
+              <li className="nav-item nav-link"><Link className="list-group-item list-group-item-action" to='/'>shq</Link></li>
+              <li className="nav-item nav-link"><Link className="list-group-item list-group-item-action" to='/'>Login</Link></li>
+              <li className="nav-item nav-link"><Link className="list-group-item list-group-item-action" to='/signup'>Signup</Link></li>
             </ul>
       </div>
       )

@@ -8,13 +8,3 @@
     min-height: 100%;
 
 }
-
-.bgimg-1 {
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  background-image: url('./img/shutterstock_1094326709.jpg');
-  min-height: 100%;
-
-}

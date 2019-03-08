@@ -48,9 +48,9 @@ render() {
     if(this.state.loggedInUser){
       return (
         <div className="App">
-          <Navbar className='navbar navbar-expand-lg navbar-light bg-light' userInSession={this.state.loggedInUser} getUser={this.getTheUser} />
+          <Navbar className='navbar navbar-expand-lg navbar-light bg-light' userInSession={this.state.loggedInUser} getUser={this.getTheUser}/>
           <Switch>
-            <ProtectedRoute user={this.state.loggedInUser} path='/products/:id' component={ProductDetails} />
+            <ProtectedRoute user={this.state.loggedInUser} path='/products/:id' component={ProductDetails}/>
             <ProtectedRoute user={this.state.loggedInUser} path='/products' component={ProductList} />
           </Switch>
         {/* <img src={cover} className='img-fluid img-thumbnail rounded mx-auto d-block' alt='Cover'/> */}
